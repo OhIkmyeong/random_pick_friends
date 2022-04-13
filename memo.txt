@@ -1,0 +1,14 @@
+피셔예이츠 셔플
+
+fisherYatesShuffle(){
+        const arranged =  Array(45).fill(1).map((el,idx)=>el + idx);
+        const shuffle = [];
+
+        while(arranged.length > 0){
+            const ranIDX = Math.floor(Math.random() * arranged.length);
+            const popped = arranged.splice(ranIDX,1)[0];
+            shuffle.push(popped);
+        }
+        console.log('피셔예이츠셔플',shuffle);
+        return shuffle;
+}//fisherYatesShuffle

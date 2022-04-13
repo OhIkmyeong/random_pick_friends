@@ -1,0 +1,7 @@
+@charset "utf-8";
+#form_ipt{
+    display:block;
+    position:relative;
+    width:90%; max-width:1000px;
+    margin:1rem auto;
+}
