@@ -1,0 +1,97 @@
+@charset "utf-8";
+#sect_res{
+    position:relative;
+    width:calc(55% - var(--gap));}
+
+#form-res{
+    display:flex; flex-flow:row-reverse wrap;
+    justify-content:flex-start;
+    gap:var(--gap-half);
+    position:relative;}
+
+#sel{
+    padding:1em 2em 1em 1em;
+    background:transparent;
+    border:none; border-radius:var(--bdr);
+    box-shadow:var(--bs);
+    font-size:1rem; font-weight:600;}
+
+    #sel:focus{
+        outline:none;
+        color:var(--purple-3);
+        box-shadow:var(--bs-inset);    }
+
+#btn-sort{
+    padding:1em 2em;
+    background:var(--gd-purple);
+    border:none; border-radius:var(--bdr);
+    color:#fff;
+    box-shadow:var(--bs-purple);
+}
+
+    #btn-sort:hover,#btn-sort:focus{
+        outline:none;
+        box-shadow:var(--bs-purple-inset);    }
+
+/* [결과 리스트] */
+#result{
+    position:relative;
+    width:100%; min-height:150px;
+    margin-top:calc(var(--gap) + 10px); padding:.5rem 0;
+    background:transparent;
+    border-radius:var(--bdr-2);
+    box-shadow:var(--bs-2);}
+
+    /* empty */
+    #result:empty::after{
+        content:"이 곳에 결과가 나타납니다."; position:absolute;
+        width:100%;
+        top:50%; transform:translateY(-50%);
+        text-align:center; font-weight:500; font-size:1.2rem; color:var(--placeholder);
+    }
+
+#result li{
+    list-style-position:inside;list-style-type:decimal;
+    position:relative;
+    padding:.8rem .5rem;
+    border-top:1px dashed var(--placeholder);
+    text-align:center; font-weight:600;}
+
+    #result li:first-child{
+        border-top:none;
+        font-size:2.8rem; color:var(--purple);
+        text-shadow:
+            -2px -2px 0 var(--purple-dark),
+            -2px -1px 0 var(--purple-dark),
+            -2px 2px 0 var(--purple-dark),
+            -2px 1px 0 var(--purple-dark),
+            1px 1px 0 var(--purple-dark),
+            2px 2px 0 var(--purple-dark),
+            2px 1px 0 var(--purple-dark),
+            2px -2px 0 var(--purple-dark),
+            2px -1px 0 var(--purple-dark),
+            3px 3px 0 var(--purple-dark),
+            4px 4px 0 var(--purple-dark),
+            5px 5px 0 var(--purple-dark),
+            6px 6px 0 var(--purple-dark),
+            0 0 1rem var(--purple);}
+
+    #result li:nth-child(2){font-size:2rem;color:var(--purple-2);}
+    #result li:nth-child(3){font-size:1.5rem;color:var(--purple-3);}
+
+    #result li::marker{
+        text-shadow:none;
+        font-size:14px; color:var(--icon);}
+
+/* 미디어쿼리 */
+@media all and (max-width:800px){
+    #sect_res{
+        width:100%;
+        padding-top:var(--gap);
+        border-top:2px dashed var(--placeholder);
+    }
+}
+/* 미디어쿼리 */
+@media all and (max-width:500px){
+    #sel,#btn-sort{width:100%;}
+}

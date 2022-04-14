@@ -1,7 +1,138 @@
 @charset "utf-8";
-#form_ipt{
+#sect_ipt{
     display:block;
     position:relative;
-    width:90%; max-width:1000px;
-    margin:1rem auto;
+    width:calc(45% - var(--gap));}
+
+/* message */
+#message-alert{
+    position:absolute; z-index:100;
+    left:50%; transform:translate(-50%,-50%);
+    width:80%;
+    padding:.5em 1em;
+    background:var(--purple-3);
+    border-radius:var(--bdr);
+    text-align:center;font-size:15px; font-weight:500; color:#fff;
+    transition:all .2s;}
+
+    #message-alert.off{
+        opacity:0;
+        pointer-events:none;}
+
+
+/* ipt */
+#ipt{
+    display:block;
+    width:100%;
+    padding:.9em 3em .9em 1.2em;
+    background:transparent;
+    border:none; border-radius:var(--bdr);
+    box-shadow:var(--bs);
+    font-weight:bold; font-size:1.2rem;
+    transition:all .3s;}
+
+    #ipt::placeholder{
+        font-size:1rem;
+        font-weight:400;color:var(--placeholder);}
+
+    #ipt:focus{
+        outline:none;
+        box-shadow:var(--bs-inset);
+        color:var(--purple-3);}
+
+/* +버튼 */
+#btn-add{
+    display:block;
+    position:absolute;
+    top:.6rem; right:1rem;
+    width:2.2rem; aspect-ratio:1/1;
+    background:transparent;
+    border:none;border-radius:50%;
+    box-shadow:var(--bs);}
+
+#ipt:focus + #btn-add{
+    animation: updown .3s infinite both alternate;}
+
+    @keyframes updown {
+        from{transform:translateY(5%) scale(1.1);}
+        to{transform:translateY(-5%) scale(1.1);}}    
+
+    /* + 기호 */
+    #btn-add::before,#btn-add::after{
+        content:'';display:block;position:absolute;
+        top:50%;left:50%;
+        width:3px; height:45%;
+        background:var(--icon);
+        pointer-events:none;}
+
+    #btn-add::before{transform:translate(-50%,-50%);}
+    #btn-add::after{transform:translate(-50%,-50%) rotate(90deg);}
+
+    /* focus */
+    #btn-add:hover::before,#btn-add:hover::after,
+    #btn-add:focus::before,#btn-add:focus::after{background:#fff;}
+
+    #btn-add:hover,
+    #btn-add:focus,
+    #ipt:focus + #btn-add:hover{
+        transform:translate(0,0) scale(1.2);
+        box-shadow:var(--bs-purple);
+        background:var(--gd-purple);
+        animation:none;}
+
+
+/* [LIST] */
+#list_friend{
+    position:relative;
+    width:100%; min-height:150px;
+    margin-top:var(--gap); padding:0;
+    border-radius:var(--bdr-2);
+    box-shadow:var(--bs-2);
+    transition:transform .3s;}
+
+    #ipt:focus ~ #list_friend{transform:translateY(calc(var(--gap-half) * -1));}
+
+    /* empty */
+    #list_friend:empty::after{
+        content:"친구를 추가해 보세요"; position:absolute;
+        width:100%;
+        top:50%; transform:translateY(-50%);
+        text-align:center; font-weight:500; font-size:1.2rem; color:var(--placeholder);
+    }
+
+#list_friend li{
+    display:flex;
+    justify-content:space-between; align-items:center;
+    gap:var(--gap);
+    position:relative;
+    width:100%;
+    padding:1em 1em 1em 1.5em;
+    border-top:1px dashed var(--placeholder);
+    font-weight:500;color:var(--icon);}
+
+    #list_friend li:first-child{border-top:none;}
+
+/* 삭제버튼 */
+.del{
+    display:block; position:relative;
+    width:30px;aspect-ratio:1/1;
+    background:var(--bg);
+    border:none; border-radius:50%;}
+
+.del::before,.del::after{
+    content:'';display:block;position:absolute;
+    left:50%;top:50%;
+    width:2px; height:50%;
+    background:var(--red);
+    pointer-events:none;}
+
+    .del::before{
+        transform:translate(-50%,-50%) rotate(45deg);
+    }
+    .del::after{
+        transform:translate(-50%,-50%) rotate(-45deg);
+    }
+
+@media all and (max-width:800px){
+    #sect_ipt{width:100%;}
 }

@@ -6,27 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>랜덤 친구들 순서 정하기</title>
     <link rel="stylesheet" type="text/css" href="./css/main.css"/>
-
+    <script src="./js/main.js" type="module"></script>
 </head>
 <body>
     <!-- [HEADER] -->
     <header>
-        <h1>랜덤 친구 순서 정하기</h1>
+        <h1>랜덤 친구 순서 정하기 v1.0</h1>
+        <p>아 정해정해 순서 순서</p>
     </header>
     
-    <!-- [INPUT] -->
-    <form id="form_ipt">
-        <!-- 결과 -->
-        <ul id="list_friend"><li>test</li><li>test</li></ul>
-        <!-- input -->
-        <input id="ipt" placeholder="이름을 입력하세용" value="익명"/>
-        <button>친구 추가</button>
-    </form><!-- form_ipt -->
+    <main>
+        <section id="sect_ipt">
+            <!-- [INPUT] -->
+            <form id="form-ipt">
+                <!-- alert -->
+                <div id="message-alert" class="off">이미 리스트에 등록된 친구에요.</div>
+                <!-- input -->
+                <input id="ipt" placeholder="이름을 입력하고 Enter!" value="익명" autocomplete="off" spellcheck="false" required/>
+                <button id="btn-add"></button>
+            </form><!-- form-ipt -->
+            <!-- 등록 리스트 -->
+            <ul id="list_friend"></ul>
+            <template>
+                <li><p>test</p><button class="del"></button></li>
+            </template>
+        </section><!-- sect_ipt -->
 
-    <button id="btn">순서를 정해줘요</button>
 
-    <!-- [RESULT] -->
-    <section id="sect_res">
-    </section><!-- sect_res -->
+        <!-- [RESULT] -->
+        <section id="sect_res">
+            <form id="form-res">
+                <select id="sel">
+                    <option value="order">ㄱ-ㅎ</option>
+                    <option value="reverse">ㅎ-ㄱ</option>
+                    <option value="random" selected>랜덤</option>
+                </select>                
+                <!-- button -->
+                <button id="btn-sort">순서를 정해주쎼요</button>
+            </form><!-- form-res -->
+            <!-- 결과-순서 정함 -->
+            <ol id="result"></ol>
+        </section><!-- sect_res -->
+    </main>
+
+    <footer>오류 제보 및 추가 건의사항 : 익명</footer>
 </body>
 </html>

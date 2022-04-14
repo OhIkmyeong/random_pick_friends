@@ -1,18 +1,101 @@
 @charset "utf-8";
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+
+:root{
+    --bg:#eceef9;
+    --gd-bg-purple:radial-gradient(var(--purple) 50%,var(--purple-3));
+    --f1:#42526d;
+    --icon:#8491a3;
+    --placeholder:#c6d1dd;
+    --shadow:#b7c5d1;
+    --shadow-2:#b7c5d1cc;
+    --shadow-3:#b7c5d155;
+    --purple:#a698fe;
+    --purple-2:#9586ff;
+    --purple-3:#856cbb;
+    --purple-dark:rgb(40, 11, 90);
+    --gd-purple:linear-gradient(135deg,rgb(89, 0, 255),rgb(136, 79, 241));
+    --red:rgb(239, 18, 77);
+    --bdr:3rem;
+    --bdr-2:14px;
+    --bs:
+        -2px -2px 8px #fff,
+        inset 2px 2px 10px var(--shadow-3),
+        5px 5px 4px var(--shadow),
+        10px 10px 10px var(--shadow-2),
+        15px 15px 15px var(--shadow-3);
+    --bs-2:
+        -2px -2px 8px rgba(255,255,255,.5),
+        inset 2px 2px 10px var(--shadow-3),
+        10px 10px 15px var(--shadow-2),
+        20px 20px 25px var(--shadow-3);
+    --bs-inset:
+        -2px -2px 4px #ffffffaa,
+        2px 2px 10px var(--shadow-3),
+        inset 5px 5px 10px var(--shadow-3),
+        inset 2px 2px 2px var(--shadow-2),
+        inset 5px 5px 15px var(--shadow),
+        inset -2px -2px 4px 2px #fff;
+
+    --bs-purple:
+        0 0 1.5rem rgba(183, 144, 255, 0.5),
+        -2px -2px 5px #ffffff99,
+        inset 2px 2px 5px 2px rgb(164, 116, 253),
+        inset -5px -5px 10px 5px rgb(89, 0, 255),
+        5px 5px 20px #9586ffff;
+
+    --bs-purple-inset:
+        inset 3px 3px 5px rgb(55, 0, 158),
+        inset 5px 5px 10px 8px rgb(89, 0, 255);
+    --gap:30px;
+    --gap-half:15px;
+    --gap-small:7px;
+}
+
 *{margin:0;padding:0;box-sizing:border-box;}
 li{list-style-type:none;}
-input,button,select{font-family:inherit;font-size:inherit;color:inherit;}
+input,button,select{font-family:inherit;font-size:inherit;color:inherit;cursor: pointer;}
+button:hover{filter:brightness(95%);}
 
 html,body{
     display:flex; flex-flow:column nowrap;
     justify-content:center;align-items:center;
     width:100%;min-height:100vh;
-    background:#eeeeef;
+    background:var(--gd-bg-purple);
     font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
     font-size:18px;
-    color:rgb(22, 26, 43);}
+    color:var(--f1);
+}
 
 /* [HEADER] */
-header{position:relative;padding:1em;}
-h1{font-size:3rem;}
+header{
+    position:relative;
+    padding:6rem 1rem 3rem 1rem;
+    text-align:center; font-size:14px;color:#fff;}
+h1{
+    margin-bottom:1rem;
+    font-size:min(3rem,9vw);font-weight:100;}
+
+
+/* [MAIN] */
+main{
+    display:flex; flex-flow:row wrap;
+    justify-content:space-between; align-items:flex-start;
+    gap:40px;
+    position:relative;
+    width:calc(100% - 2rem); max-width:1000px;
+    margin:0 auto; padding:2rem;
+    background:var(--bg);
+    border-radius:14px;
+    box-shadow:5px 5px 15px var(--purple-2);
+}
+
+
+/* [FOOTER] */
+footer{
+    position:relative;
+    width:100%;
+    padding:1em;margin-top:auto;
+    background:var(--purple-3); color:#fff;
+    text-align:center; font-size:12px;
+}
